@@ -35,7 +35,7 @@ async def on_message(ctx):
         channel = bot.get_channel(951922587674488862)
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
-        await channel.send(f"ctx.author.mention}\n{ctx.content} \n{current_time}")
+        await channel.send(f"{ctx.author.mention}\n{ctx.content} \n{current_time}")
 bot.run(TOKEN)
 
 
