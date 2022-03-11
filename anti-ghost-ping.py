@@ -3,8 +3,8 @@
 #credit if used
 import discord
 from discord.ext import commands
-
-TOKEN = "" #log bot token
+import os
+TOKEN = os.environ["BOT_TOKEN"]
 bot = commands.Bot(command_prefix = "£")
 
 @bot.event
