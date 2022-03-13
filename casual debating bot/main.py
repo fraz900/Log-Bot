@@ -18,15 +18,18 @@ async def on_ready():
         
 @bot.event
 async def on_message_delete(message):
-    if "@" in message.content:
-        response = f"<@!{message.author.id}> ghost pinged"
-        await message.channel.send(response)
+    if not ctx.author.guild_permissions.administrator:
+        if "@" in message.content:
+            response = f"<@!{message.author.id}> ghost pinged"
+            await message.channel.send(response)
 
 @bot.event
 async def on_message_edit(before,after):
-    if "@" in before.content and "@" not in after.content:
-        response = f"<@!{before.author.id}> ghost pinged"
-        await before.channel.send(response)
+    if not ctx.author.guild_permissions.administrator:
+        if "@" in before.content and "@" not in after.content:
+            response = f"<@!{before.author.id}> ghost pinged"
+            await before.channel.send(response)
+
 
 
 @bot.event
